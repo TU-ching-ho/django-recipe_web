@@ -1,0 +1,32 @@
+{% extends 'main/home.html' %}
+{% block title %}
+登入
+{% endblock %}
+
+{% block style %}
+<style>
+    .form-container {
+        width: 500px;
+        margin: 50px auto;
+        text-align: center;
+        padding: 15px;
+        border-radius: 20px;
+        background-color: rgb(157, 231, 231);
+    }
+</style>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="" method="post" class="form-group">
+    {% csrf_token %}
+    <div class="form-container">
+        {{form|crispy}}
+        <br>
+        <p>尚未註冊帳號嗎?<a href="/register">點此註冊</a></p>
+        <button type="submit" class="btn btn-success">登入</button><br><br>
+    </div>
+</form>
+
+
+{% endblock %}

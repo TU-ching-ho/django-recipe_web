@@ -1,0 +1,52 @@
+{% extends 'main/home.html' %}
+{% load static %}
+{% block title %} 修改食譜 {% endblock %}
+
+
+{% block style %}
+<style>
+    .main-form {
+        width: 800px;
+        margin: 50px auto;
+        padding: 0px 10px;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="main-form">
+    <form action="record/{{ myrecipe.id }}" method="post">
+        {% csrf_token %}
+
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+                <span class="input-group-text">食譜名稱:</span>
+            </div>
+            <input type="text" class="form-control" name="title" value="{{myrecipe.title}}">
+        </div>
+
+        <div class="input-group">
+
+            <span class="input-group-text">製作方法:</span>
+
+            <textarea class="form-control" name="text" cols="50" rows="20">{{myrecipe.text}}</textarea>
+        </div>
+        <br>
+        <!--分隔線-->
+        選擇圖片:<br>
+
+        <div class="mb-3">
+            {% if myrecipe.image %}
+            <img src="{{ myrecipe.image.url }}" alt="目前沒有圖片" width="300px" height="200px" name="original"
+                style="border-radius: 20px;"><br><br>
+            {% else %}
+            <img src="{% static 'media/default.bmp' %}" alt="" width="300px" height="200px">
+            {% endif %}
+            <input type="file" name="image">
+        </div>
+        <input type="submit" value="修改" class="btn btn-success">
+</div>
+</form>
+</div>
+{% endblock %}

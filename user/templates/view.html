@@ -1,0 +1,68 @@
+{% extends 'main/home.html' %}
+
+{% load static %}
+{% block title %} 我的食譜 {% endblock %}
+
+{% block style %}
+<style>
+    .main-list {
+        text-align: center;
+        margin: 50px auto;
+        padding: 0px 10px;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<!--
+<a href="/sort">排序</a>
+<div class="main-list">
+    {% for content in recipe %}
+    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-info"
+        style="margin-top: 30px; font-size: 30px;">
+        <a href="update/{{content.id}}" class="h4 text-primary">{{content.title}}</a> {{content.created}}
+        <div id="image">
+            {% if content.image %}
+            <img src="{{content.image.url}}" alt="" width="300px" height="200px" class="img-fluid rounded">
+            {% else %}
+            <img src="{% static 'media/default.bmp' %}" alt="" width="300px" height="200px" class="img-fluid rounded">
+            {% endif %}
+        </div>
+        <div class="btn-group-vertical" role="group">
+            <a href="update/{{content.id}}" class="btn btn-outline-primary btn-sm">更新</a>
+
+            <a href="delete/{{content.id}}" class="btn btn-outline-danger btn-sm">刪除</a>
+        </div>
+    </li>
+    {% endfor %}
+</div>
+-->
+<div class="main-list d-flex flex-wrap justify-content-center">
+    {% for content in recipe %}
+
+    <div class="card mb-4 " style="width: 18rem; margin-left: 10px;">
+        {% if content.image %}
+        <img src="{{content.image.url}}" alt="" class="card-img-top img-fluid rounded">
+        {% else %}
+        <img src="{% static 'media/default.bmp' %}" alt="" class="card-img-top img-fluid rounded">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{content.title}}</h5>
+            <p class="card-text">{{content.created}}</p>
+            <div class="btn-group" role="group">
+                <a href="update/{{content.id}}" class="btn btn-outline-info btn-sm">內容</a>
+                <a href="delete/{{content.id}}" class="btn btn-outline-danger btn-sm"
+                    onclick="return confirm('確定要刪除這項食譜嗎?');">刪除</a>
+
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+
+
+
+{% endblock %}

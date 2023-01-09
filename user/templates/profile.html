@@ -1,0 +1,33 @@
+{% extends 'main/home.html' %}
+
+{% block title %} 我的資訊 {% endblock %}
+
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+<div class="card border-info mb-3 mx-auto" style="max-width: 40rem;font-size:30px;margin-top: 20px;">
+    <div class="card-header">個人資料</div>
+    <div class="card-body text-dark" style="font-family:DFKai-sb;">
+        <li class="list-group-item ">
+            <h2>姓名:{{user.username}}</h2>
+        </li>
+        <li class="list-group-item">
+            <h2>信箱:{{user.email}}</h2>
+        </li>
+        <li class="list-group-item">
+            <h2>建立日期:{{user.date_joined}}</h2>
+        </li>
+        <li class="list-group-item">
+            <h2>最後登入時間:{{user.last_login}}</h2>
+        </li>
+    </div>
+</div>
+
+{% else %}
+
+{% endif %}
+{% endblock %}

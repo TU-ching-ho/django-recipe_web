@@ -1,0 +1,16 @@
+li {
+    display: inline-block;
+    width: 300px;
+    background-color: rgb(235, 241, 253);
+    margin: 6px 6px;
+    border: 2px solid rgb(201, 19, 65);
+    padding: 6px;
+    border-radius: 6px;
+}
+
+
+
+img {
+    margin-top: 12px;
+    border-radius: 6px;
+}

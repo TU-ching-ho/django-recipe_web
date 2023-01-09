@@ -1,0 +1,32 @@
+{% extends 'main/home.html' %}
+
+{% block title %}註冊帳號{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+<style>
+    .form-container {
+        width: 500px;
+        margin: 50px auto;
+        text-align: left;
+        padding: 15px;
+        border-radius: 20px;
+        color: rgb(21, 24, 24);
+        background-color: rgb(157, 231, 231);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<form action="" method="POST" class="form-group">
+    {% csrf_token %}
+    <div class="form-container">
+        {{form|crispy}}
+        <button type="submit" class="btn btn-success">註冊</button>
+        <span>{{ message }}</span>
+    </div>
+
+</form>
+
+{% endblock %}

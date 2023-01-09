@@ -1,0 +1,35 @@
+{% extends 'main/home.html' %}
+{% load static %}
+{% block title %} 創建食譜 {% endblock %}
+
+{% block style %}
+<style>
+    .create-form {
+        width: 500px;
+        margin: 50px auto;
+        text-align: left;
+        padding: 15px;
+        border-radius: 20px;
+        background-color: rgb(157, 231, 231);
+    }
+</style>
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<body>
+    <div class="create-form">
+        <h1 class=" mb-6  text-dark text-center" style="margin-top: 10px;margin-bottom: 10px;font-family: 標楷體;">
+            創建食譜</h1>
+        <form action="" method="post" class="form-group" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+            <br>
+            <button type="submit" class="btn btn-success">建立</button>
+        </form>
+    </div>
+
+
+</body>
+{% endblock %}
